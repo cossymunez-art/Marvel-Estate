@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marvel Estate · modern living</title>
+  <!-- Google Fonts for clean typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fbfaf8;
+      color: #1e1e1e;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ---------- HEADER ---------- */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #1c2b2b;
+    }
+
+    .logo span {
+      color: #bb8b5c;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 1rem;
+      color: #2e2e2e;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #bb8b5c;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #1c2b2b;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.2px;
+    }
+
+    .btn:hover {
+      background-color: #2e4343;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #1c2b2b;
+      border: 1.5px solid #1c2b2b;
+    }
+
+    .btn-outline:hover {
+      background: #1c2b2b;
+      color: white;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+      padding: 60px 0 70px;
+    }
+
+    .hero-content {
+      flex: 1 1 350px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #f0ebe6;
+      color: #7b5e41;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 30px;
+      letter-spacing: 0.4px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      color: #152222;
+    }
+
+    .hero h1 .highlight {
+      color: #bb8b5c;
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: #4d4d4d;
+      max-width: 500px;
+      margin-bottom: 36px;
+      font-weight: 300;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-image {
+      flex: 1 1 350px;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .hero-image:hover img {
+      transform: scale(1.02);
+    }
+
+    /* ---------- FEATURES / GOOD LOOK ---------- */
+    .section-heading {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-heading h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #152222;
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      font-size: 1.1rem;
+      color: #616161;
+      max-width: 600px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    .features {
+      padding: 70px 0;
+      background: #f4f1ee;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 28px;
+      padding: 36px 30px;
+      box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.25s, box-shadow 0.3s;
+      border: 1px solid rgba(0, 0, 0, 0.02);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 30px -12px rgba(0, 0, 0, 0.12);
+    }
+
+    .feature-icon {
+      background: #e8dfd7;
+      color: #775e44;
+      width: 60px;
+      height: 60px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 24px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #152222;
+    }
+
+    .feature-card p {
+      color: #555;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* ---------- ESTATE SHOWCASE ---------- */
+    .showcase {
+      padding: 80px 0;
+    }
+
+    .estate-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .estate-card {
+      background: white;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px -12px rgba(0, 0, 0, 0.1);
+      transition: all 0.25s;
+      border: 1px solid #ece7e1;
+    }
+
+    .estate-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 35px -14px rgba(0, 0, 0, 0.15);
+    }
+
+    .estate-img {
+      height: 240px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .estate-tag {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(3px);
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #1c2b2b;
+      letter-spacing: 0.3px;
+    }
+
+    .estate-info {
+      padding: 24px 22px 26px;
+    }
+
+    .estate-info h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #152222;
+    }
+
+    .estate-location {
+      font-size: 0.95rem;
+      color: #7b7b7b;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .estate-location i {
+      color: #bb8b5c;
+      font-size: 0.9rem;
+    }
+
+    .estate-meta {
+      display: flex;
+      gap: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #3e3e3e;
+      border-top: 1px solid #eee8e2;
+      padding-top: 18px;
+      margin-top: 8px;
+    }
+
+    .estate-meta i {
+      color: #bb8b5c;
+      margin-right: 6px;
+    }
+
+    .price {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1c2b2b;
+      margin-top: 12px;
+    }
+
+    .price span {
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: #8a8a8a;
+    }
+
+    /* ---------- CTA / FOOTER ---------- */
+    .cta-section {
+      background: #1c2b2b;
+      border-radius: 48px;
+      padding: 60px 40px;
+      margin: 70px 0;
+      text-align: center;
+      color: white;
+      background-image: radial-gradient(circle at 20% 30%, #2b4040 0%, #152222 100%);
+    }
+
+    .cta-section h2 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      color: #cfcfcf;
+      max-width: 500px;
+      margin: 0 auto 32px;
+      font-weight: 300;
+    }
+
+    .cta-section .btn {
+      background: #bb8b5c;
+      color: #1c2b2b;
+      font-weight: 700;
+      padding: 14px 38px;
+      font-size: 1rem;
+    }
+
+    .cta-section .btn:hover {
+      background: #d9a97a;
+      color: #101e1e;
+    }
+
+    footer {
+      border-top: 1px solid #e3ddd6;
+      padding: 32px 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      color: #5e5e5e;
+      font-size: 0.9rem;
+    }
+
+    .footer-logo {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #1c2b2b;
+    }
+
+    .footer-logo span {
+      color: #bb8b5c;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: #4b4b4b;
+    }
+
+    .footer-links a:hover {
+      color: #bb8b5c;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 760px) {
+      .navbar {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .nav-links {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 2.6rem;
+      }
+
+      .hero {
+        padding: 40px 0 50px;
+      }
+
+      .btn {
+        padding: 10px 22px;
+      }
+
+      .section-heading h2 {
+        font-size: 2rem;
+      }
+
+      .cta-section {
+        padding: 40px 24px;
+      }
+
+      .cta-section h2 {
+        font-size: 1.9rem;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- header / nav -->
+  <div class="container">
+    <header class="navbar">
+      <div class="logo">Marvel<span>Estate</span></div>
+      <div class="nav-links">
+        <a href="#">Properties</a>
+        <a href="#">Neighborhoods</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+      <a href="#" class="btn btn-outline">Book a viewing</a>
+    </header>
+  </div>
+
+  <!-- hero -->
+  <div class="container">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-key" style="margin-right: 6px;"></i> Exclusive estates
+        </div>
+        <h1>
+          Live <span class="highlight">marvel</span>lously<br>
+          in every square foot.
+        </h1>
+        <p>
+          Discover curated estates where architecture meets comfort. 
+          Marvel Estate brings you timeless design, lush surroundings, 
+          and a community that feels like home.
+        </p>
+        <div class="hero-actions">
+          <a href="#" class="btn">Explore estates</a>
+          <a href="#" class="btn btn-outline">Take a tour</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img 
+          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" 
+          alt="Modern estate home with pool and lawn"
+        />
+      </div>
+    </section>
+  </div>
+
+  <!-- features / good look section -->
+  <section class="features">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Every detail, considered</h2>
+        <p>Marvel Estate is built on thoughtful design and a refined aesthetic — inside and out.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-tree"></i></div>
+          <h3>Landscaped serenity</h3>
+          <p>Private gardens, mature trees, and winding paths create a calm, green escape from the everyday.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-couch"></i></div>
+          <h3>Curated interiors</h3>
+          <p>Warm natural materials, open layouts, and abundant light — each residence is a canvas for living well.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>Peace of mind</h3>
+          <p>24/7 security, smart access, and a dedicated estate team so you can focus on what matters.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-water"></i></div>
+          <h3>Wellness & leisure</h3>
+          <p>Resort-style pool, tennis courts, and a residents' lounge — designed for balance and connection.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- estate showcase / listings -->
+  <div class="container">
+    <section class="showcase">
+      <div class="section-heading">
+        <h2>Featured estates</h2>
+        <p>Handpicked homes that capture the Marvel spirit — modern, elegant, and full of character.</p>
+      </div>
+
+      <div class="estate-grid">
+        <!-- Estate card 1 -->
+        <div class="estate-card">
+          <div class="estate-img" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop');">
+            <div class="estate-tag">New listing</div>
+          </div>
+          <div class="estate-info">
+            <h3>Willow House</h3>
+            <div class="estate-location"><i class="fas fa-map-pin"></i> 12 Marvel Lane, Greenfield</div>
+            <div class="estate-meta">
+              <span><i class="fas fa-bed"></i> 4 beds</span>
+              <span><i class="fas fa-bath"></i> 3.5 baths</span>
+              <span><i class="fas fa-vector-square"></i> 3,200 sqft</span>
+            </div>
+            <div class="price">$1,850,000 <span> / freehold</span></div>
+          </div>
+        </div>
+
+        <!-- Estate card 2 -->
+        <div class="estate-card">
+          <div class="estate-img" style="background-image: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop');">
+            <div class="estate-tag">Waterfront</div>
+          </div>
+          <div class="estate-info">
+            <h3>The Terraces</h3>
+            <div class="estate-location"><i class="fas fa-map-pin"></i> 8 Harbour Walk, Marvel Bay</div>
+            <div class="estate-meta">
+              <span><i class="fas fa-bed"></i> 3 beds</span>
+              <span><i class="fas fa-bath"></i> 2 baths</span>
+              <span><i class="fas fa-vector-square"></i> 2,100 sqft</span>
+            </div>
+            <div class="price">$1,225,000 <span> / freehold</span></div>
+          </div>
+        </div>
+
+        <!-- Estate card 3 -->
+        <div class="estate-card">
+          <div class="estate-img" style="background-image: url('https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=80&w=1984&auto=format&fit=crop');">
+            <div class="estate-tag">Signature</div>
+          </div>
+          <div class="estate-info">
+            <h3>Oakridge Manor</h3>
+            <div class="estate-location"><i class="fas fa-map-pin"></i> 5 Estate Drive, Marvel Hills</div>
+            <div class="estate-meta">
+              <span><i class="fas fa-bed"></i> 5 beds</span>
+              <span><i class="fas fa-bath"></i> 4.5 baths</span>
+              <span><i class="fas fa-vector-square"></i> 4,800 sqft</span>
+            </div>
+            <div class="price">$2,950,000 <span> / freehold</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- CTA -->
+  <div class="container">
+    <section class="cta-section">
+      <h2>Find your Marvel moment</h2>
+      <p>Schedule a private viewing and experience the estate for yourself. Our team is ready to welcome you home.</p>
+      <a href="#" class="btn">Arrange a visit</a>
+    </section>
+  </div>
+
+  <!-- footer -->
+  <div class="container">
+    <footer>
+      <div class="footer-logo">Marvel<span>Estate</span></div>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Instagram</a>
+        <a href="#">Contact</a>
+      </div>
+      <div style="font-size: 0.85rem;">© 2025 Marvel Estate · crafted with care</div>
+    </footer>
+  </div>
+</body>
+</html>
